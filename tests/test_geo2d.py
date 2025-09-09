@@ -60,7 +60,7 @@ class TestRectangle(unittest.TestCase):
 
         # Test with very small dimensions
         rect_small = Rectangle(0.01, 0.02)
-        self.assertAlmostEqual(rect_small.area(), 0.01 * 0.02 * 2, places=5)
+        self.assertAlmostEqual(rect_small.area(), 0.01 * 0.02, places=5)
         expected_perimeter = 2 * (0.01 + 0.02)
         self.assertAlmostEqual(rect_small.perimeter(), expected_perimeter,
                                places=5)
