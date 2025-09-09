@@ -1,0 +1,27 @@
+name: Python application
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install .
+    - name: Run geo2d tests
+      run: |
+        python -m unittest tests/test_geo2d.py
+    - name: Run geo3d tests
+      run: |
+        python -m unittest tests/test_geo3d.py
